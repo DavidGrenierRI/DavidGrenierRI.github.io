@@ -1,0 +1,416 @@
+
+<html>
+	<head  lang="en">
+		<meta charset="utf-8">
+		<title>Real Jobs Rhode Island Report</title>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.9/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+		
+		<style type=text/css>
+			body {
+				font-family: Arial;
+				font-size: 10pt;
+				margin: 0;
+			}
+
+			#header  {
+				background-color: none;
+				color: gray;
+				font-size: 1.5em;
+				margin: 0;
+				padding: .2em;
+				text-align: left;
+				}
+
+			#dashboard {
+				margin: 1em;
+				width: calc(100% - 2em);
+				/*height: calc(100% - 4.5em);
+*/
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: flex-start;
+				align-items: flex-start;
+				align-content: space-between;
+			}
+
+			#toppanels {
+				width: 100%;				
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-around;
+				align-items: flex-start;
+				align-content: space-between;
+			}
+
+			#demographics, #finances {
+				text-align: center;
+				width: 95%;
+				padding-top: 2.5%;
+				padding-left: 2.5%;
+				padding-right: 2.5%;
+			}
+
+			#demographics .graphs {
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-content: space-around;
+				align-items: center;
+			}
+
+			#demographics .graphs div {
+				flex-basis: 25%;
+				height: 250;
+			}
+
+			.panel {
+				flex-basis: 45%;
+				/* height: calc(100% -2.5em);*/
+			}
+
+			h2 {
+				background-color: #666666;
+				color: white;
+				font-size: 1.2em;
+				margin: 0em;
+				padding: 1em;
+				text-align: center;
+			}
+
+			.asof {
+				color: gray;
+				text-align: right;
+				font-size: 0.8em;
+				font-style: italic;
+			}
+
+			.tilepanel {
+				/*height: calc(100% - 6em);*/
+				margin-top: 1em;
+
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: flex-start;
+				align-content: flex-start;
+				align-items: baseline;
+			}
+
+			.tilepanel>div {
+				width: 100%;
+			}
+
+			h3 {
+				background: lightgray;
+				text-align: center;
+				font-size: 1em;
+				padding: 0.1em;
+				width: 100%;
+				margin: 0;
+			}
+
+
+			.tilerow {
+				display: flex;
+				flex-flow: row wrap;
+				width: 100%;
+
+				justify-content: space-around;
+			}
+
+			#finances .tilerow .tile {
+				flex-basis: 8.5%;
+				height: 1em;
+				padding: 1.5% 1% 5%;
+			}
+
+			.tile {
+				flex-basis: 17%;
+				padding: 5% 1% 7.5%;
+				margin: 1em 0em;
+				background-color: #F9F9F9;
+			}
+
+			.stat {
+				display: block;
+				font-weight: bold;
+				font-size: 4em;
+				text-align: center;
+			}
+
+			.tile a {
+				color: black;
+				text-decoration: none;
+			}
+
+			.tile a:hover,
+			.tile a:hover .label
+			 {
+				color: red;
+			}
+
+			.label {
+				color: gray;
+				display: block;
+				text-align: center;
+			}
+
+
+			.bigtiles .tile {
+				flex-basis: 35%;
+				padding: 15% 5% ;
+				border: 1px solid black;
+			}
+
+		</style>
+	</head>
+
+	<body>		
+		<h1 id=header>Real Jobs Rhode Island</h1>
+		<div id=dashboard>
+				<div id=toppanels>
+				<div id=overview class=panel>		
+					<h2>Overview</h2>
+					<div class=asof>Data as of 10/31/2017</div>
+					<div class=tilepanel>
+						<div>
+							<h3>It starts with employers...</h3>
+							<div class=tilerow>
+								<div class=tile><a href="sectors.html"><span class=stat>33</span> <span class=label>Sector Partnerships</span></a></div>
+								<div class=tile><a href="employers.html"><span class=stat>318</span> <span class=label>Employers Served</span></a></div>
+								<div class=tile><span class=stat>16</span> <span class=label>Industry Sectors</span></div>
+							</div>
+						</div>
+
+						<div>
+							<h3>...who develop workforce solutions...</h3>
+							<div class=tilerow>
+								<div class=tile><span class=stat>102</span> <span class=label>New Hire Training Activities</span></div>
+								<div class=tile><span class=stat>52</span> <span class=label>Incumbent Worker Training Programs</span></div>
+								<div class=tile><span class=stat>14</span> <span class=label>Pipeline Development Activities</span></div>
+							</div>
+						</div>
+
+						<div>
+							<h3>...and connect Rhode Islanders with opportunities</h3>
+							<div class=tilerow>
+								<div class=tile><span class=stat>947</span> <span class=label>New Hires Placed</span></div>
+								<div class=tile><span class=stat>627</span> <span class=label>Incumbent Workers Upskilled</span></div>
+								<div class=tile><span class=stat>35</span> <span class=label>College Internships Completed</span></div>
+								<div class=tile><span class=stat>10</span> <span class=label>New Career & Technical High School Programs</span></div>
+								<div class=tile><span class=stat>123</span> <span class=label>High School Students Completing Internships</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id=performance class=panel>
+					<h2>Data and Performance</h2>
+					<div class=asof>Data as of 10/31/2017</div>
+					<div class='tilepanel, bigtiles'>
+						<div>
+							<div class=tilerow>
+								<div class=tile><span class=stat>??%</span> <span class=label>Placement Rate</span></div>
+								<div class=tile><span class=stat>$31.7K</span> <span class=label>Average Wage After Placement</span></div>
+								<div class=tile><span class=stat>$??</span> <span class=label>Average Wage Gain (After Upskilling?)</span></div>
+							</div>
+						</div>
+
+						<!-- div>
+							<h3>New Hire Training</h3>
+							<div class=tilerow>
+								<div class=tile><span class=stat>947</span> <span class=label>Employed</span></div>
+								<div class=tile><span class='stat'>$31.7K</span> <span class=label>Average Wage at Placement</span></div>
+								<div class=tile><span class='stat'>77%</span> <span class=label>Employed Immediately Upon Completion</span></div>
+								<div  class=tile><span class=stat>??</span> <span class=label>Employed After Two Quarters</span></div>
+							</div>
+						</div>
+
+						<div>
+							<h3>Incumbent Worker Training</h3>
+							<div class=tilerow>
+								<div class=tile><span class=stat>627</span> <span class=label>Completed</span></div>
+								<div class=tile><span class=stat>??</span> <span class=label>Average Wage Gain Per Individual</span></div>
+							</div>
+						</div -->
+					</div>
+				</div>
+			</div>
+
+			<div id='finances'>
+				<h2>Finances</h2>
+				<div class=asof>Data as of 10/31/2017</div>
+				<div class=tilerow>
+					<div class=tile><span class=stat>$3,940</span> <span class=label>Cost Per Individual</span></div>
+					<div class=tile><span class=stat>$5,500</span> <span class=label>Benchmark Cost</span></div>
+				</div>
+			</div>
+
+			<div id='demographics'>
+				<h2>Demographics</h2>
+				<div class=asof>Data as of 11/03/2017</div>
+				<div class=graphs>
+					<div id=gender>Gender</div>
+					<div id=education>Education Level</div>
+					<div id=race_ethnicity>Race/Ethnicity</div>
+				</div>
+			</div>
+		</div>
+
+<script>
+Highcharts.setOptions({
+    lang: {
+        thousandsSep: ','
+    }
+});
+
+Highcharts.chart('gender', {
+	chart: {type: 'bar'},
+	credits: {enabled: false},
+	exporting: {enabled: false},
+	title: {text: 'Gender'},
+	plotOptions: {
+		bar: {
+			animation: false,
+			stacking: 'percent', 
+			dataLabels: {
+				enabled: true,
+				format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+				style: {textOutline: 'none'},
+			}
+		}
+	},	
+	series: [{
+		name: 'Male',
+		data: [1128, 503635],
+		index: 1
+	}, {
+		name: 'Female',
+		data: [652, 544684], 
+		index: 2
+	}],
+	xAxis: {categories: ['RJRI New Hires', '2015 RI Census']}, 
+	yAxis: {
+		labels: {enabled: false},
+		reversedStacks: false,
+		title: {enabled: false}
+	}
+});
+
+
+Highcharts.chart('education', {
+	chart: {type: 'bar'},
+	credits: {enabled: false},
+	exporting: {enabled: false},
+	title: {text: 'Education Level'},
+		plotOptions: {
+		bar: {
+			animation: false,
+			stacking: 'percent', 
+			dataLabels: {
+				enabled: true,
+				format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+				style: {textOutline: 'none'},
+			}
+		}
+	},	
+	series: [{
+		name: 'Less than HS Diploma',
+		data: [210, 99747],
+    index: 1
+	},{
+		name: 'High School Diploma or Equivalency',
+		data: [676, 196988],
+    index: 2
+	},{
+		name: 'Some college, no degree',
+		data: [359, 133029],
+    index: 3
+	},{
+		name: 'Associates Degree',
+		data: [110, 61060],
+    index: 4
+	},{
+		name: 'Bachelors Degree or Higher',
+		data: [286, 137505],
+    index: 5
+	},{
+		name: 'Vocational College or Other',
+		data: [94],
+    index: 6
+	}],
+	xAxis: {categories: ['RJRI New Hires', '2014 RI Census']}, 
+	yAxis: {
+		labels: {enabled: false},
+    reversedStacks: false,
+		title: {enabled: false}
+	}
+});
+
+Highcharts.chart('race_ethnicity', {
+	chart: {type: 'bar'},
+	credits: {enabled: false},
+	exporting: {enabled: false},
+	title: {text: 'Race/Ethnicity'},
+		plotOptions: {
+		bar: {
+			animation: false,
+			stacking: 'percent', 
+			dataLabels: {
+				enabled: true,
+				format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+				style: {textOutline: 'none'},
+			}
+		}
+	},	
+	series: [{
+		name: 'White',
+		data: [1044, 856869],
+    index: 1
+	},{
+		name: 'African American',
+		data: [263, 60189],
+    index: 2
+	},{
+		name: 'Latino (any race)',
+		data: [304, 130655],
+    index: 3
+	},{
+		name: 'American Indian/Alaskan Native',
+		data: [19, 6058],
+    index: 4
+	},{
+		name: 'Asian',
+		data: [67, 30457],
+    index: 5
+	},{
+		name: 'Hawaiian/Pacific Islander',
+		data: [5,0.1],
+    index: 6
+	},{
+		name: 'Two or More Races',
+		data: [54, 34787],
+    index: 7
+	},{
+		name: 'Did Not Disclose',
+		data: [327],
+    index: 8,
+    visible: false
+	}],
+	xAxis: {categories: ['RJRI New Hires', '2015 RI Census']}, 
+	yAxis: {
+		labels: {enabled: false},
+    reversedStacks: false,
+		title: {enabled: false}
+	}
+});
+</script>
+
+
+
+		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.9/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</head>
